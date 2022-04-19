@@ -1,9 +1,10 @@
 import sys
 
-from data.data_resource import read
+from data.data_resource import read, get_column
 
 def main():
-    read()
+    df = read()
+    data = get_column(df, 5)
 
 if __name__ == "__main__":
     main()

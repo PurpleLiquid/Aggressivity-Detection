@@ -2,6 +2,7 @@ import csv
 import os
 import glob
 import pandas as pd
+import string
 
 def read():
     path = os.getcwd()
@@ -13,5 +14,19 @@ def read():
         # read the csv file
         df = pd.read_csv(f, encoding='latin-1')
 
-        print('Content:')
-        print(df)
+        return df
+
+def get_column(df, index):
+    i = 0;
+    for col in df.columns:
+        if i == index:
+            data = list(df[col])
+            data.insert(0, col)
+            return data
+
+        i = i + 1
+
+# def clean(data):
+#     table = str.maketrans('', '', string.punctuation)
+#     stripped = [sentences.translate(table) for sentences in data]
+#     print(stripped[0])
