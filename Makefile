@@ -6,8 +6,10 @@ venv\Scripts\activate: requirements.txt
 	py -m venv venv
 	.\venv\Scripts\pip install -r requirements.txt
 
+.PHONY: run clean
+
 run: venv\Scripts\activate
-	.\venv\Scripts\python.exe $(SRC_MAIN)/main.py
+	.\venv\Scripts\python.exe $(SRC_MAIN)/__main__.py
 
 clean:
 	rm -rf __pycache__
