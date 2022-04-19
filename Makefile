@@ -12,5 +12,5 @@ run: venv\Scripts\activate
 	.\venv\Scripts\python.exe $(SRC_MAIN)/__main__.py
 
 clean:
-	rm -rf __pycache__
+	rm -rf src/data/__pycache__
 	rm -rf venv
