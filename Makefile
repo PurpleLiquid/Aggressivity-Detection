@@ -6,7 +6,12 @@ venv\Scripts\activate: requirements.txt
 	py -m venv venv
 	.\venv\Scripts\pip install -r requirements.txt
 
-.PHONY: run clean
+.PHONY: setup run clean
+
+setup: venv\Scripts\activate
+	.\venv\Scripts\python.exe -m pip install --upgrade pip
+	.\venv\Scripts\pip install pandas
+	.\venv\Scripts\pip install glob2
 
 run: venv\Scripts\activate
 	.\venv\Scripts\python.exe $(SRC_MAIN)/__main__.py

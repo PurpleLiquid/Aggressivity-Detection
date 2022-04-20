@@ -4,6 +4,7 @@ import glob
 import pandas as pd
 import string
 
+# Function reads from a .csv file and returns a dataframe
 def read():
     path = os.getcwd()
     print(path)
@@ -16,6 +17,7 @@ def read():
 
         return df
 
+# Processes a dataframe to get a specific coulmn in .csv
 def get_column(df, index):
     i = 0;
     for col in df.columns:
@@ -25,8 +27,3 @@ def get_column(df, index):
             return data
 
         i = i + 1
-
-# def clean(data):
-#     table = str.maketrans('', '', string.punctuation)
-#     stripped = [sentences.translate(table) for sentences in data]
-#     print(stripped[0])
