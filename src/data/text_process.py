@@ -31,4 +31,5 @@ def clean(string):
     string = clean_nums(string)
     string = clean_extra(string)
 
+    string = string.lower()
     return string
