@@ -13,6 +13,7 @@ setup: venv\Scripts\activate
 	.\venv\Scripts\pip install pandas
 	.\venv\Scripts\pip install glob2
 	.\venv\Scripts\pip install nltk
+	.\venv\Scripts\pip install sklearn
 
 run: venv\Scripts\activate
 	.\venv\Scripts\python.exe $(SRC_MAIN)/__main__.py

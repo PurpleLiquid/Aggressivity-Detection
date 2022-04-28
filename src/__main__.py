@@ -8,14 +8,19 @@ def main():
     df = read()
     data = get_column(df, 5)
     string = clean(data[0])
-    print("\n" + string + "\n")
+    string2 = clean(data[1])
+    string3 = clean(data[2])
+    string4 = clean(data[3])
+    string5 = clean(data[4])
 
-    list = make_list(string)
-    ngram = make_ngram(list, 2)
-
-    for item in ngram:
-        print(item)
-
+    aList_of_strings = []
+    aList_of_strings.append(string)
+    aList_of_strings.append(string2)
+    aList_of_strings.append(string3)
+    aList_of_strings.append(string4)
+    aList_of_strings.append(string5)
+    tf = computeTF(aList_of_strings, 2)
+    print(tf)
 
 if __name__ == "__main__":
     main()

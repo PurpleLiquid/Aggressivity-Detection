@@ -1,4 +1,10 @@
 import re
+import nltk
+nltk.download('stopwords')
+
+from nltk.corpus import stopwords
+
+stop_words = stopwords.words('english')
 
 def clean_urls(string):
     regex = r"\b(?:https?://)?(?:(?i:[a-z]+\.)+)[^\s,]+\b"
@@ -24,6 +30,10 @@ def clean_extra(string):
     string_wo_extra = ' '.join( [w for w in string.split() if len(w)>1] )
     return string_wo_extra
 
+def clean_stop_words(string):
+    text = ' '.join([word for word in string.split() if word not in stop_words])
+    return text
+
 def clean(string):
     string = clean_urls(string)
     string = clean_usernames_and_hashtags(string)
@@ -32,4 +42,6 @@ def clean(string):
     string = clean_extra(string)
 
     string = string.lower()
+    string = clean_stop_words(string)
+
     return string
