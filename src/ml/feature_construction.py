@@ -39,10 +39,11 @@ def stem(list_of_words):
 #     return lemmatized_words
 
 # TF-IDF
-def computeTF(list_of_sentences, n):
-    vectorizer = TfidfVectorizer()
-    response = vectorizer.fit_transform(list_of_sentences)
-    return response
+def computeTFidf(train_data, test_data):
+    vectorizer = TfidfVectorizer(analyzer='word', ngram_range=(1,2), use_idf=True)
+    train_tfidf = vectorizer.fit_transform(train_data)
+    test_tfidf = vectorizer.transform(test_data)
+    return train_tfidf, test_tfidf
 
 # N-gram model
 def make_ngram(list_of_words, n):
